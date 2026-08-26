@@ -44,6 +44,8 @@ Never commit `.zapierapprc`, API keys, test responses containing customer data, 
 
 See [ZAPIER_TEST_PLAN.md](ZAPIER_TEST_PLAN.md) for the five-capability validation matrix and three-user Beta gate. See [LISTING_COPY.md](LISTING_COPY.md) for reviewed metadata, capability-specific product links, and Zap Template titles.
 
+Beta testers can use the step-by-step [ZAPIER_BETA_ONBOARDING.md](ZAPIER_BETA_ONBOARDING.md), including the official private-integration invite URL and three distinct live-Zap scenarios.
+
 ## Initial Zap templates after Beta approval
 
 1. Track Amazon competitor price and stock in Google Sheets.
