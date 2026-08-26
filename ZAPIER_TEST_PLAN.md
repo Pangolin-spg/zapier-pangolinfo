@@ -50,3 +50,13 @@ Additional validation Zaps:
 - Screenshots with credentials and personal data redacted.
 - Monitoring results showing no 401/403/429/5xx pattern.
 - Three distinct beta users with at least one enabled live Zap each.
+
+## 2026-08-26 local live verification
+
+- Authentication passed through the MCP `initialize` check.
+- All six capability handlers completed against live Pangolinfo endpoints using a time-limited key stored only in the ignored local `.env` file.
+- Amazon product detail, keyword product search, Google AI Overview, niche opportunities, and Alexa Shopping returned structured data. The one-star review query completed successfully and returned an empty array for the selected ASIN/filter at test time.
+- The niche handler returned 10 records with stable IDs and demand/competition fields. Zapier CLI's interactive result printer emitted `s is not iterable` while rendering that large result, but the same handler passed through `zapier-platform-core` and returned the expected array; this was isolated as a CLI display issue rather than an API or handler failure.
+- Alexa Shopping completed in approximately 39 seconds, within the integration's 90-second request timeout.
+- No credential or full private response was copied into this document, Git, or the status tracker.
+- Remaining production evidence: create a Zapier-hosted connection, run each capability from the Zap editor, and retain redacted Zap History evidence.
