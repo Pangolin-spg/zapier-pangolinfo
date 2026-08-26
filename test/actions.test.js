@@ -10,8 +10,8 @@ const makeZ = (payload, status = 200) => ({
 const auth = { authData: { apiKey: 'test-key' } };
 
 describe('Pangolinfo Zapier actions', () => {
-  test('exports three read actions and three searches', () => {
-    expect(Object.keys(App.creates)).toHaveLength(3);
+  test('exports two read actions and three searches', () => {
+    expect(Object.keys(App.creates)).toHaveLength(2);
     expect(Object.keys(App.searches)).toHaveLength(3);
   });
 
@@ -52,12 +52,6 @@ describe('Pangolinfo Zapier actions', () => {
     const z = makeZ({ data: { items: { data: [{ nicheId: 'N1', nicheTitle: 'Fans' }] } } });
     const result = await App.searches.filter_amazon_niches.operation.perform(z, { ...auth, inputData: { minSearchVolume: 10000, maxTop5BrandShare: 0.4, page: 1, size: 10, limit: 10 } });
     expect(result[0]).toEqual({ nicheId: 'N1', nicheTitle: 'Fans', id: 'N1' });
-  });
-
-  test('sends Alexa prompts as a bounded array', async () => {
-    const z = makeZ({ data: { taskId: 'alexa-1' } });
-    await App.creates.ask_amazon_alexa.operation.perform(z, { ...auth, inputData: { prompt: 'best portable fan', screenshot: false } });
-    expect(z.request.mock.calls[0][0].body.param).toEqual(['best portable fan']);
   });
 
   test('returns a sanitized error without response bodies or API keys', async () => {

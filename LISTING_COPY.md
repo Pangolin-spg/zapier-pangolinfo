@@ -7,13 +7,13 @@
 - **Intended audience:** Public
 - **Relationship:** I am employed by Pangolinfo
 - **Homepage:** https://www.pangolinfo.com/
-- **Description:** Live Amazon product, review, niche, Alexa shopping, and Google AI Overview data for automated workflows.
+- **Description:** Live Amazon product, review, niche, and Google AI Overview data for reliable automated workflows.
 - **Support:** csm@pangolinfo.com
 - **API documentation:** https://docs.pangolinfo.com/en-index
 
 ## Positioning
 
-Pangolinfo gives ecommerce, SEO, product-research, and automation teams structured live data without maintaining browsers, proxies, CAPTCHA handling, or Amazon and Google page parsers. Zapier users can map product details, keyword rankings, reviews, niche metrics, AI Overview citations, and Alexa shopping recommendations into spreadsheets, alerts, databases, and collaboration tools.
+Pangolinfo gives ecommerce, SEO, product-research, and automation teams structured live data without maintaining browsers, proxies, CAPTCHA handling, or Amazon and Google page parsers. Zapier users can map product details, keyword rankings, reviews, niche metrics, and AI Overview citations into spreadsheets, alerts, databases, and collaboration tools.
 
 ## Capability-specific links
 
@@ -24,7 +24,6 @@ Pangolinfo gives ecommerce, SEO, product-research, and automation teams structur
 | Find Amazon Reviews by ASIN | https://www.pangolinfo.com/amazon-scraper-api/ | https://docs.pangolinfo.com/en-api-reference/amazonReviewAPI/amazonReviewAPI |
 | Get Google AI Overview | https://www.pangolinfo.com/ai-overview-serp-api/ | https://docs.pangolinfo.com/en-api-reference/aiModeSerpApi/aiModeSerpAPI |
 | Find Amazon Niche Opportunities | https://www.pangolinfo.com/amazon-niche-data-api/ | https://docs.pangolinfo.com/en-api-reference/nicheFilterAPI/nicheFilterAPI |
-| Ask Amazon Alexa for Shopping | https://www.pangolinfo.com/amazon-alexa-api/ | https://docs.pangolinfo.com/en-api-reference/amazonAlexaAPI/amazonAlexaAPI |
 
 ## Recommended Zap Template titles
 
@@ -33,6 +32,7 @@ Pangolinfo gives ecommerce, SEO, product-research, and automation teams structur
 3. Monitor Amazon organic and Sponsored keyword rankings in Google Sheets.
 4. Alert your SEO team when Google AI Overview citations change.
 5. Build a weekly Amazon niche opportunity shortlist in Airtable.
-6. Archive Amazon Alexa shopping recommendations and follow-up questions in Notion.
+
+Amazon Alexa is excluded from Zapier v1 because its synchronous response time can exceed Zapier's 30-second action limit. Use the direct [Amazon Alexa API](https://www.pangolinfo.com/amazon-alexa-api/), [API documentation](https://docs.pangolinfo.com/en-api-reference/amazonAlexaAPI/amazonAlexaAPI), Make, or Apify until an asynchronous Zapier-compatible flow is available.
 
 Each template should explain its business outcome, setup, credit use, data freshness, error behavior, and the most relevant Pangolinfo product/documentation links. Do not repeat an identical block of promotional copy across templates.

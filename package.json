@@ -1,7 +1,7 @@
 {
   "name": "zapier-pangolinfo",
-  "version": "1.0.0",
-  "description": "Official Pangolinfo integration for Amazon product, review, niche, Alexa and Google AI Overview data on Zapier.",
+  "version": "1.0.1",
+  "description": "Official Pangolinfo integration for Amazon product, review, niche and Google AI Overview data on Zapier.",
   "main": "index.js",
   "private": true,
   "license": "MIT",

@@ -7,7 +7,6 @@ const searchAmazonProducts = require('./actions/searchAmazonProducts');
 const getAmazonReviews = require('./actions/getAmazonReviews');
 const getGoogleAiOverview = require('./actions/getGoogleAiOverview');
 const filterAmazonNiches = require('./actions/filterAmazonNiches');
-const askAmazonAlexa = require('./actions/askAmazonAlexa');
 
 module.exports = {
   version: require('./package.json').version,
@@ -17,7 +16,6 @@ module.exports = {
   creates: {
     [getAmazonProduct.key]: getAmazonProduct,
     [getGoogleAiOverview.key]: getGoogleAiOverview,
-    [askAmazonAlexa.key]: askAmazonAlexa,
   },
   searches: {
     [searchAmazonProducts.key]: searchAmazonProducts,

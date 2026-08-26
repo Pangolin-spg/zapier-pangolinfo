@@ -2,14 +2,13 @@
 
 Official Zapier Platform CLI integration for live Amazon commerce and AI-search intelligence from Pangolinfo.
 
-The integration exposes six useful, read-only operations instead of acting as a thin promotional wrapper:
+The integration exposes five useful, read-only operations instead of acting as a thin promotional wrapper:
 
 - Get Amazon Product by ASIN
 - Find Amazon Products by Keyword
 - Find Amazon Reviews by ASIN
 - Get Google AI Overview
 - Find Amazon Niche Opportunities
-- Ask Amazon Alexa for Shopping
 
 ## Product and documentation map
 
@@ -18,8 +17,9 @@ The integration exposes six useful, read-only operations instead of acting as a 
 | Product, keyword and review data | [Amazon Scraper API](https://www.pangolinfo.com/amazon-scraper-api/) | [Amazon API](https://docs.pangolinfo.com/en-api-reference/amazonApi/amazonScrapeAPI) · [Review API](https://docs.pangolinfo.com/en-api-reference/amazonReviewAPI/amazonReviewAPI) |
 | Google AI Overview content and citations | [AI Overview SERP API](https://www.pangolinfo.com/ai-overview-serp-api/) | [AI Overview API](https://docs.pangolinfo.com/en-api-reference/aiModeSerpApi/aiModeSerpAPI) |
 | Niche demand and competition metrics | [Amazon Niche Data API](https://www.pangolinfo.com/amazon-niche-data-api/) | [Niche Filter API](https://docs.pangolinfo.com/en-api-reference/nicheFilterAPI/nicheFilterAPI) |
-| Alexa shopping answers and recommendations | [Amazon Alexa API](https://www.pangolinfo.com/amazon-alexa-api/) | [Amazon Alexa API](https://docs.pangolinfo.com/en-api-reference/amazonAlexaAPI/amazonAlexaAPI) |
 | Agent-based access to the wider tool set | [Amazon Data MCP](https://www.pangolinfo.com/amazon-data-mcp/) | [MCP for agents](https://docs.pangolinfo.com/en-help-center/mcp/agents) |
+
+The [Amazon Alexa API](https://www.pangolinfo.com/amazon-alexa-api/) remains available through its [technical documentation](https://docs.pangolinfo.com/en-api-reference/amazonAlexaAPI/amazonAlexaAPI), Make, Apify, and direct API/MCP workflows. It is intentionally not exposed in Zapier v1 because Alexa requests can exceed Zapier's 30-second action runtime; publishing a frequently timing-out action would not be useful to users.
 
 ## Authentication
 
@@ -42,7 +42,7 @@ npx zapier-platform push
 
 Never commit `.zapierapprc`, API keys, test responses containing customer data, or Zapier deploy credentials.
 
-See [ZAPIER_TEST_PLAN.md](ZAPIER_TEST_PLAN.md) for the six-capability validation matrix and three-user Beta gate. See [LISTING_COPY.md](LISTING_COPY.md) for reviewed metadata, capability-specific product links, and Zap Template titles.
+See [ZAPIER_TEST_PLAN.md](ZAPIER_TEST_PLAN.md) for the five-capability validation matrix and three-user Beta gate. See [LISTING_COPY.md](LISTING_COPY.md) for reviewed metadata, capability-specific product links, and Zap Template titles.
 
 ## Initial Zap templates after Beta approval
 
@@ -51,7 +51,6 @@ See [ZAPIER_TEST_PLAN.md](ZAPIER_TEST_PLAN.md) for the six-capability validation
 3. Monitor organic and Sponsored keyword visibility on a schedule.
 4. Alert when a brand disappears from Google AI Overview citations.
 5. Build a weekly Amazon niche opportunity shortlist.
-6. Track Alexa shopping recommendations and follow-up questions.
 
 ## Publishing gate
 
