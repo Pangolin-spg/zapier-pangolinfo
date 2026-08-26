@@ -1,0 +1,52 @@
+# Zapier Integration Test Plan
+
+This plan verifies Pangolinfo v1.0.0 in the Zapier editor without storing credentials or private response data in the repository.
+
+## Preconditions
+
+- Use a time-limited Pangolinfo API key in a Zapier connection.
+- Name the connection `Pangolinfo 7-day test` or another non-secret label.
+- Confirm authentication succeeds through the read-only MCP initialize request.
+- Do not enable screenshots unless the scenario explicitly requires visual evidence.
+- Delete or rotate the test credential when the testing window ends.
+
+## Action and search tests
+
+| Capability | Safe test input | Required assertions |
+|---|---|---|
+| Get Amazon Product by ASIN | ASIN `B0DYTF8L2W`, `amz_us`, optional postal code `10041` | HTTP success; stable `id`; non-empty product envelope; no API key in output or logs |
+| Find Amazon Products by Keyword | `noise cancelling headphones`, `amz_us`, limit `10` | One or more records; each record has a string `id`; position and Sponsored fields are mappable when returned |
+| Find Amazon Reviews by ASIN | ASIN `B0DYTF8L2W`, one page, one-star filter, recent sort, limit `10` | Review records have stable IDs; page count is bounded; ASIN and point cost are retained |
+| Get Google AI Overview | `best portable fan`, screenshot disabled | Stable task ID; structured response; AI Overview and citation fields are available when Google returns them |
+| Find Amazon Niche Opportunities | US, minimum volume `10000`, maximum top-five brand share `0.4`, page/size `1/10` | Stable niche IDs; demand and competition metrics are mappable; no more than 10 records |
+| Ask Amazon Alexa for Shopping | `What are the best portable fans for travel?`, screenshot disabled | Stable task ID; answer, product groups, ASINs, and follow-up questions are mappable when returned |
+
+## Error tests
+
+1. Use a deliberately invalid temporary key and confirm authentication fails without exposing the key or response body.
+2. Submit an invalid ASIN and confirm the error is understandable and sanitized.
+3. Submit review page count `99` and confirm the request is capped at `10`.
+4. Submit result limit `200` and confirm output is capped at `100`.
+5. Confirm users cannot override either Pangolinfo host or any API path.
+
+## End-to-end live Zaps
+
+At least three users must run live Zaps before App Directory submission. Recommended beta Zaps:
+
+1. Schedule → Find Amazon Products by Keyword → Google Sheets: keyword ranking snapshot.
+2. Schedule → Find Amazon Reviews by ASIN → Slack: low-star complaint digest.
+3. Schedule → Get Google AI Overview → Google Sheets: brand citation evidence.
+
+Additional validation Zaps:
+
+4. Schedule → Get Amazon Product by ASIN → Filter → Email: price or stock change alert.
+5. Schedule → Find Amazon Niche Opportunities → Airtable: weekly shortlist.
+6. Schedule → Ask Amazon Alexa for Shopping → Notion: recommendation and follow-up archive.
+
+## Evidence to retain
+
+- Successful authentication timestamp.
+- One successful Zap History run per capability.
+- Screenshots with credentials and personal data redacted.
+- Monitoring results showing no 401/403/429/5xx pattern.
+- Three distinct beta users with at least one enabled live Zap each.

@@ -42,6 +42,8 @@ npx zapier-platform push
 
 Never commit `.zapierapprc`, API keys, test responses containing customer data, or Zapier deploy credentials.
 
+See [ZAPIER_TEST_PLAN.md](ZAPIER_TEST_PLAN.md) for the six-capability validation matrix and three-user Beta gate. See [LISTING_COPY.md](LISTING_COPY.md) for reviewed metadata, capability-specific product links, and Zap Template titles.
+
 ## Initial Zap templates after Beta approval
 
 1. Track Amazon competitor price and stock in Google Sheets.
