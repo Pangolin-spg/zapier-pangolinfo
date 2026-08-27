@@ -1,6 +1,6 @@
 # Zapier Integration Test Plan
 
-This plan verifies Pangolinfo v1.0.2 in the Zapier editor without storing credentials or private response data in the repository.
+This plan verifies Pangolinfo v1.0.3 in the Zapier editor without storing credentials or private response data in the repository.
 
 ## Preconditions
 
@@ -57,5 +57,5 @@ Additional validation Zaps:
 - No credential or full private response was copied into this document, Git, or the status tracker.
 - A Zapier-hosted connection was created and Product Detail, Keyword Product Search, Reviews, AI Overview, and Niche Opportunities all passed in the Zap editor. Search scenarios were explicitly configured to return all results as line items.
 - On 2026-08-27, the first hosted live AI Overview run timed out at Zapier's fixed 30-second limit. Pangolinfo's documentation describes an average response time of approximately 30 seconds, so editor success does not make this action reliable in production.
-- AI Overview was removed from the exported v1.0.2 capability set, alongside Alexa, while remaining available through n8n, Make, Apify, direct API, and MCP workflows.
+- AI Overview is hidden from new users in v1.0.3, while its key remains exported only to preserve Zapier migration compatibility with existing Zaps. Alexa remains excluded. Both stay available through n8n, Make, Apify, direct API, and MCP workflows.
 - Remaining production evidence: create beta-ready end-to-end Zaps and retain redacted Zap History evidence from at least three users.

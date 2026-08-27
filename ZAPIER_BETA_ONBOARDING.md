@@ -4,7 +4,7 @@
 
 Request the official private-integration invite URL from the Pangolinfo integration administrator, then open it while signed in to the Zapier account that will run the Beta Zap. The access URL is intentionally kept out of this public repository to avoid uncontrolled enrollment before the Beta cohort is approved.
 
-Accept access to Pangolinfo v1.0.2, then connect a time-limited or test-purpose Pangolinfo API key. Never share a production key with another tester.
+Accept access to Pangolinfo v1.0.3, then connect a time-limited or test-purpose Pangolinfo API key. Never share a production key with another tester.
 
 ## Three useful Beta scenarios
 
@@ -44,4 +44,4 @@ Each tester should build, enable, and successfully run at least one live Zap. Us
 
 ## Current capability scope
 
-Zapier v1.0.2 includes four hosted-runtime-verified capabilities: Amazon Product Detail, Amazon Keyword Products, Amazon Reviews, and Amazon Niche Opportunities. AI Overview and Amazon Alexa are intentionally excluded because their synchronous responses can meet or exceed Zapier's 30-second hosted action limit; use their direct APIs, n8n, Make, Apify, or MCP instead.
+Zapier v1.0.3 includes four visible hosted-runtime-verified capabilities: Amazon Product Detail, Amazon Keyword Products, Amazon Reviews, and Amazon Niche Opportunities. AI Overview is retained only as a hidden compatibility action for existing Zaps, while Alexa remains excluded. Use their direct APIs, n8n, Make, Apify, or MCP instead.

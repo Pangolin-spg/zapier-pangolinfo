@@ -10,10 +10,10 @@ const makeZ = (payload, status = 200) => ({
 const auth = { authData: { apiKey: 'test-key' } };
 
 describe('Pangolinfo Zapier actions', () => {
-  test('exports one read action and three searches', () => {
-    expect(Object.keys(App.creates)).toHaveLength(1);
+  test('exports four visible operations and one hidden compatibility action', () => {
+    expect(Object.keys(App.creates)).toHaveLength(2);
     expect(Object.keys(App.searches)).toHaveLength(3);
-    expect(App.creates.get_google_ai_overview).toBeUndefined();
+    expect(App.creates.get_google_ai_overview.display.hidden).toBe(true);
   });
 
   test('authenticates with MCP initialize and never embeds the key in the URL', async () => {

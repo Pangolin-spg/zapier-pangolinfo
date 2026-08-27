@@ -1,6 +1,6 @@
 {
   "name": "zapier-pangolinfo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Official Pangolinfo integration for Amazon product, keyword, review, and niche data on Zapier.",
   "main": "index.js",
   "private": true,
