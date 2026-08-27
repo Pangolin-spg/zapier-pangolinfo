@@ -1,13 +1,12 @@
 # Pangolinfo for Zapier
 
-Official Zapier Platform CLI integration for live Amazon commerce and AI-search intelligence from Pangolinfo.
+Official Zapier Platform CLI integration for live Amazon commerce intelligence from Pangolinfo.
 
-The integration exposes five useful, read-only operations instead of acting as a thin promotional wrapper:
+The integration exposes four useful, read-only operations instead of acting as a thin promotional wrapper:
 
 - Get Amazon Product by ASIN
 - Find Amazon Products by Keyword
 - Find Amazon Reviews by ASIN
-- Get Google AI Overview
 - Find Amazon Niche Opportunities
 
 ## Product and documentation map
@@ -15,11 +14,10 @@ The integration exposes five useful, read-only operations instead of acting as a
 | Zapier capability | Pangolinfo product | Documentation |
 |---|---|---|
 | Product, keyword and review data | [Amazon Scraper API](https://www.pangolinfo.com/amazon-scraper-api/) | [Amazon API](https://docs.pangolinfo.com/en-api-reference/amazonApi/amazonScrapeAPI) · [Review API](https://docs.pangolinfo.com/en-api-reference/amazonReviewAPI/amazonReviewAPI) |
-| Google AI Overview content and citations | [AI Overview SERP API](https://www.pangolinfo.com/ai-overview-serp-api/) | [AI Overview API](https://docs.pangolinfo.com/en-api-reference/aiModeSerpApi/aiModeSerpAPI) |
 | Niche demand and competition metrics | [Amazon Niche Data API](https://www.pangolinfo.com/amazon-niche-data-api/) | [Niche Filter API](https://docs.pangolinfo.com/en-api-reference/nicheFilterAPI/nicheFilterAPI) |
 | Agent-based access to the wider tool set | [Amazon Data MCP](https://www.pangolinfo.com/amazon-data-mcp/) | [MCP for agents](https://docs.pangolinfo.com/en-help-center/mcp/agents) |
 
-The [Amazon Alexa API](https://www.pangolinfo.com/amazon-alexa-api/) remains available through its [technical documentation](https://docs.pangolinfo.com/en-api-reference/amazonAlexaAPI/amazonAlexaAPI), Make, Apify, and direct API/MCP workflows. It is intentionally not exposed in Zapier v1 because Alexa requests can exceed Zapier's 30-second action runtime; publishing a frequently timing-out action would not be useful to users.
+The [AI Overview SERP API](https://www.pangolinfo.com/ai-overview-serp-api/) and [Amazon Alexa API](https://www.pangolinfo.com/amazon-alexa-api/) remain available through their [AI Overview documentation](https://docs.pangolinfo.com/en-api-reference/aiModeSerpApi/aiModeSerpAPI), [Alexa documentation](https://docs.pangolinfo.com/en-api-reference/amazonAlexaAPI/amazonAlexaAPI), n8n, Make, Apify, and direct API/MCP workflows. They are intentionally not exposed in Zapier v1.0.2 because their synchronous requests can meet or exceed Zapier's 30-second action runtime; publishing timing-sensitive actions would not be useful to users.
 
 ## Authentication
 
@@ -42,7 +40,7 @@ npx zapier-platform push
 
 Never commit `.zapierapprc`, API keys, test responses containing customer data, or Zapier deploy credentials.
 
-See [ZAPIER_TEST_PLAN.md](ZAPIER_TEST_PLAN.md) for the five-capability validation matrix and three-user Beta gate. See [LISTING_COPY.md](LISTING_COPY.md) for reviewed metadata, capability-specific product links, and Zap Template titles.
+See [ZAPIER_TEST_PLAN.md](ZAPIER_TEST_PLAN.md) for the four-capability validation matrix and three-user Beta gate. See [LISTING_COPY.md](LISTING_COPY.md) for reviewed metadata, capability-specific product links, and Zap Template titles.
 
 Beta testers can use the step-by-step [ZAPIER_BETA_ONBOARDING.md](ZAPIER_BETA_ONBOARDING.md), including the official private-integration invite URL and three distinct live-Zap scenarios.
 
@@ -51,8 +49,7 @@ Beta testers can use the step-by-step [ZAPIER_BETA_ONBOARDING.md](ZAPIER_BETA_ON
 1. Track Amazon competitor price and stock in Google Sheets.
 2. Send low-star Amazon reviews to Slack for complaint triage.
 3. Monitor organic and Sponsored keyword visibility on a schedule.
-4. Alert when a brand disappears from Google AI Overview citations.
-5. Build a weekly Amazon niche opportunity shortlist.
+4. Build a weekly Amazon niche opportunity shortlist.
 
 ## Publishing gate
 

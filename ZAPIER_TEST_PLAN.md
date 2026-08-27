@@ -1,6 +1,6 @@
 # Zapier Integration Test Plan
 
-This plan verifies Pangolinfo v1.0.0 in the Zapier editor without storing credentials or private response data in the repository.
+This plan verifies Pangolinfo v1.0.2 in the Zapier editor without storing credentials or private response data in the repository.
 
 ## Preconditions
 
@@ -17,7 +17,6 @@ This plan verifies Pangolinfo v1.0.0 in the Zapier editor without storing creden
 | Get Amazon Product by ASIN | ASIN `B0DYTF8L2W`, `amz_us`, optional postal code `10041` | HTTP success; stable `id`; non-empty product envelope; no API key in output or logs |
 | Find Amazon Products by Keyword | `noise cancelling headphones`, `amz_us`, limit `10` | One or more records; each record has a string `id`; position and Sponsored fields are mappable when returned |
 | Find Amazon Reviews by ASIN | ASIN `B0DYTF8L2W`, one page, one-star filter, recent sort, limit `10` | Review records have stable IDs; page count is bounded; ASIN and point cost are retained |
-| Get Google AI Overview | `best portable fan`, screenshot disabled | Stable task ID; structured response; AI Overview and citation fields are available when Google returns them |
 | Find Amazon Niche Opportunities | US, minimum volume `10000`, maximum top-five brand share `0.4`, page/size `1/10` | Stable niche IDs; demand and competition metrics are mappable; no more than 10 records |
 
 ## Error tests
@@ -34,12 +33,11 @@ At least three users must run live Zaps before App Directory submission. Recomme
 
 1. Schedule → Find Amazon Products by Keyword → Google Sheets: keyword ranking snapshot.
 2. Schedule → Find Amazon Reviews by ASIN → Slack: low-star complaint digest.
-3. Schedule → Get Google AI Overview → Google Sheets: brand citation evidence.
+3. Schedule → Get Amazon Product by ASIN → Google Sheets: product snapshot.
 
 Additional validation Zaps:
 
-4. Schedule → Get Amazon Product by ASIN → Filter → Email: price or stock change alert.
-5. Schedule → Find Amazon Niche Opportunities → Airtable: weekly shortlist.
+4. Schedule → Find Amazon Niche Opportunities → Airtable: weekly shortlist.
 
 ## Evidence to retain
 
@@ -58,4 +56,6 @@ Additional validation Zaps:
 - Alexa Shopping completed locally in approximately 39 seconds but failed in Zapier's hosted editor at the platform's 30-second action limit. It was therefore removed from the public v1.0.1 capability set rather than shipping a timing-sensitive action.
 - No credential or full private response was copied into this document, Git, or the status tracker.
 - A Zapier-hosted connection was created and Product Detail, Keyword Product Search, Reviews, AI Overview, and Niche Opportunities all passed in the Zap editor. Search scenarios were explicitly configured to return all results as line items.
+- On 2026-08-27, the first hosted live AI Overview run timed out at Zapier's fixed 30-second limit. Pangolinfo's documentation describes an average response time of approximately 30 seconds, so editor success does not make this action reliable in production.
+- AI Overview was removed from the exported v1.0.2 capability set, alongside Alexa, while remaining available through n8n, Make, Apify, direct API, and MCP workflows.
 - Remaining production evidence: create beta-ready end-to-end Zaps and retain redacted Zap History evidence from at least three users.

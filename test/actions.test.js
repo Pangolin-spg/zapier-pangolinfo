@@ -10,9 +10,10 @@ const makeZ = (payload, status = 200) => ({
 const auth = { authData: { apiKey: 'test-key' } };
 
 describe('Pangolinfo Zapier actions', () => {
-  test('exports two read actions and three searches', () => {
-    expect(Object.keys(App.creates)).toHaveLength(2);
+  test('exports one read action and three searches', () => {
+    expect(Object.keys(App.creates)).toHaveLength(1);
     expect(Object.keys(App.searches)).toHaveLength(3);
+    expect(App.creates.get_google_ai_overview).toBeUndefined();
   });
 
   test('authenticates with MCP initialize and never embeds the key in the URL', async () => {
@@ -40,12 +41,6 @@ describe('Pangolinfo Zapier actions', () => {
     const result = await App.searches.get_amazon_reviews.operation.perform(z, { ...auth, inputData: { asin: 'B0DYTF8L2W', site: 'amz_us', pageCount: 99, limit: 10 } });
     expect(z.request.mock.calls[0][0].body.bizContext.pageCount).toBe(10);
     expect(result[0].id).toBe('R1');
-  });
-
-  test('encodes Google queries', async () => {
-    const z = makeZ({ data: { taskId: 'google-1' } });
-    await App.creates.get_google_ai_overview.operation.perform(z, { ...auth, inputData: { query: 'best fan & cooler', screenshot: false } });
-    expect(z.request.mock.calls[0][0].body.url).toBe('https://www.google.com/search?q=best%20fan%20%26%20cooler');
   });
 
   test('normalizes niche results', async () => {
